@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>그린플레이트 (GreenPlate) - 학교 급식 탄소 절감 플랫폼</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-emerald-50 text-gray-800 font-sans">
+
+    <!-- 헤더 바 -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-md mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <span class="text-2xl">🌱</span>
+                <h1 class="font-bold text-lg text-emerald-700">GreenPlate</h1>
+            </div>
+            <div class="flex items-center space-x-3">
+                <button class="text-sm bg-emerald-100 text-emerald-800 px-3 py-1.5 rounded-full font-medium">
+                    <i class="fa-solid fa-trophy mr-1"></i> 랭킹
+                </button>
+                <button class="text-gray-600 hover:text-emerald-700">
+                    <i class="fa-solid fa-user text-lg"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 메인 컨테이너 (모바일 최적화 폭) -->
+    <main class="max-w-md mx-auto p-4 space-y-6">
+
+        <!-- 히어로 배너 / 인증 섹션 -->
+        <section class="bg-gradient-to-br from-emerald-600 to-teal-700 text-white p-6 rounded-3xl shadow-lg text-center space-y-4">
+            <span class="bg-emerald-500/40 text-emerald-100 text-xs px-3 py-1 rounded-full uppercase tracking-wider font-semibold">SDGs 13 기후 행동 팀 '열공'</span>
+            <h2 class="text-2xl font-black leading-tight">잔반 없이 깨끗한 식판,<br>지구를 구하는 가장 쉬운 방법</h2>
+            <p class="text-emerald-100 text-sm">사진을 올리거나 글을 남겨 커뮤니티에 참여해보세요!</p>
+            
+            <div class="pt-2">
+                <label for="cameraInput" class="w-full bg-white text-emerald-700 font-bold py-3.5 px-4 rounded-2xl shadow-md flex items-center justify-center space-x-2 cursor-pointer hover:bg-emerald-50 transition">
+                    <i class="fa-solid fa-camera text-xl"></i>
+                    <span>식판 사진 찍고 바로 인증하기</span>
+                </label>
+                <!-- 사진 선택 시 즉시 업로드 실행 -->
+                <input type="file" id="cameraInput" accept="image/*" capture="environment" class="hidden">
+            </div>
+        </section>
+
+        <!-- 나의 누적 리포트 -->
+        <section class="bg-white p-5 rounded-3xl shadow-sm space-y-4">
+            <div class="flex justify-between items-center">
+                <h3 class="font-bold text-gray-700 flex items-center">
+                    <i class="fa-solid fa-chart-line text-emerald-600 mr-2"></i> 나의 환경 리포트
+                </h3>
+                <span class="text-xs text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full font-semibold">Lv.3 초록 수호자</span>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-3">
+                <div class="bg-emerald-50/60 p-4 rounded-2xl text-center">
+                    <p class="text-xs text-gray-500 mb-1">절약한 음식물 쓰레기</p>
+                    <p class="text-xl font-black text-emerald-700">1.2 <span class="text-sm font-normal">kg</span></p>
+                </div>
+                <div class="bg-teal-50/60 p-4 rounded-2xl text-center">
+                    <p class="text-xs text-gray-500 mb-1">줄인 탄소 배출량</p>
+                    <p class="text-xl font-black text-teal-700">2.8 <span class="text-sm font-normal">kg CO₂</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 학교 실시간 랭킹 -->
+        <section class="bg-white p-5 rounded-3xl shadow-sm space-y-3">
+            <div class="flex justify-between items-center">
+                <h3 class="font-bold text-gray-700 flex items-center">
+                    <i class="fa-solid fa-medal text-amber-500 mr-2"></i> 이번 주 학급 잔반 랭킹
+                </h3>
+                <span class="text-xs text-gray-400">실시간 갱신</span>
+            </div>
+
+            <div class="space-y-2">
+                <div class="flex items-center justify-between p-3 bg-amber-50 border border-amber-200 rounded-2xl">
+                    <div class="flex items-center space-x-3">
+                        <span class="font-black text-amber-600 w-5">1</span>
+                        <span class="font-semibold text-gray-800">2학년 6반</span>
+                    </div>
+                    <span class="text-xs font-bold text-amber-700 bg-amber-100 px-2 py-1 rounded-lg">탄소 -14.2kg</span>
+                </div>
+                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-2xl">
+                    <div class="flex items-center space-x-3">
+                        <span class="font-black text-gray-500 w-5">2</span>
+                        <span class="font-semibold text-gray-800">2학년 5반</span>
+                    </div>
+                    <span class="text-xs font-bold text-gray-600 bg-gray-200 px-2 py-1 rounded-lg">탄소 -11.8kg</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 에코 커뮤니티 게시판 섹션 -->
+        <section class="bg-white p-5 rounded-3xl shadow-sm space-y-4">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h3 class="font-bold text-gray-700 flex items-center">
+                        <i class="fa-solid fa-comments text-emerald-600 mr-2"></i> 에코 커뮤니티
+                    </h3>
+                    <p class="text-xs text-gray-400">환경 보호 팁과 식판 인증을 공유해요</p>
+                </div>
+                <button id="openModalBtn" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-3 py-2 rounded-xl shadow-sm flex items-center space-x-1 transition">
+                    <i class="fa-solid fa-pen"></i>
+                    <span>글쓰기</span>
+                </button>
+            </div>
+
+            <!-- 말머리 필터 탭 -->
+            <div class="flex space-x-3 border-b border-gray-100 pb-2 text-xs">
+                <button class="tab-btn font-bold text-emerald-700 border-b-2 border-emerald-600 pb-1 px-1 transition" data-tab="all">전체</button>
+                <button class="tab-btn font-medium text-gray-400 hover:text-gray-700 pb-1 px-1 transition" data-tab="일반">일반</button>
+                <button class="tab-btn font-medium text-gray-400 hover:text-gray-700 pb-1 px-1 transition" data-tab="공지">공지</button>
+            </div>
+
+            <!-- 게시글 목록 -->
+            <div id="postList" class="space-y-4">
+                <div id="emptyMessage" class="text-center py-8 text-gray-400 text-xs">
+                    아직 등록된 글이 없습니다. 첫 번째 글을 작성해보세요! 🌱
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 글쓰기 모달 팝업 -->
+    <div id="writeModal" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white w-full max-w-sm rounded-3xl p-6 space-y-4 shadow-xl max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center">
+                <h3 class="font-bold text-gray-800 text-lg flex items-center">
+                    <i class="fa-solid fa-pen-to-square text-emerald-600 mr-2"></i> 새 글 작성하기
+                </h3>
+                <button id="closeModalBtn" class="text-gray-400 hover:text-gray-600 text-lg">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form id="postForm" class="space-y-3">
+                <div>
+                    <label class="block text-xs font-bold text-gray-600 mb-1">작성자 / 학급</label>
+                    <input type="text" id="authorInput" placeholder="예: 김열공 (1학년 3반)" required class="w-full text-xs p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-emerald-500">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-600 mb-1">말머리 선택</label>
+                    <select id="tagInput" class="w-full text-xs p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-emerald-500">
+                        <option value="일반">일반</option>
+                        <option value="공지">공지</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-600 mb-1">사진 첨부 (선택)</label>
+                    <input type="file" id="modalImageInput" accept="image/*" class="w-full text-xs text-gray-500 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-emerald-50 file:text-emerald-700 hover:file:bg-emerald-100 cursor-pointer">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-600 mb-1">내용</label>
+                    <textarea id="contentInput" rows="4" placeholder="오늘의 급식 소감이나 환경 보호 팁을 남겨주세요!" required class="w-full text-xs p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-emerald-500 resize-none"></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl shadow-md transition text-xs">
+                    등록하기
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 하단 여백 -->
+    <div class="h-10"></div>
+
+    <!-- JavaScript 기능 구현 -->
+    <script>
+        const cameraInput = document.getElementById('cameraInput');
+        const openModalBtn = document.getElementById('openModalBtn');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const writeModal = document.getElementById('writeModal');
+        const postForm = document.getElementById('postForm');
+        const postList = document.getElementById('postList');
+        const emptyMessage = document.getElementById('emptyMessage');
+        const tabBtns = document.querySelectorAll('.tab-btn');
+
+        let posts = [];
+        let currentFilter = 'all';
+
+        openModalBtn.addEventListener('click', () => writeModal.classList.remove('hidden'));
+        closeModalBtn.addEventListener('click', () => writeModal.classList.add('hidden'));
+        writeModal.addEventListener('click', (e) => {
+            if (e.target === writeModal) writeModal.classList.add('hidden');
+        });
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabBtns.forEach(b => {
+                    b.classList.remove('font-bold', 'text-emerald-700', 'border-b-2', 'border-emerald-600');
+                    b.classList.add('font-medium', 'text-gray-400');
+                });
+                btn.classList.remove('font-medium', 'text-gray-400');
+                btn.classList.add('font-bold', 'text-emerald-700', 'border-b-2', 'border-emerald-600');
+
+                currentFilter = btn.getAttribute('data-tab');
+                renderPosts();
+            });
+        });
+
+        cameraInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    addNewPost("나 (열공 팀)", "일반", "오늘도 잔반 없이 깨끗한 식판 인증! 지구 온실가스 감축 동참 완료 🌿", event.target.result);
+                    cameraInput.value = '';
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        postForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const author = document.getElementById('authorInput').value;
+            const tag = document.getElementById('tagInput').value;
+            const content = document.getElementById('contentInput').value;
+            const modalImageInput = document.getElementById('modalImageInput');
+
+            if (modalImageInput.files && modalImageInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    addNewPost(author, tag, content, event.target.result);
+                    finalizePostForm();
+                }
+                reader.readAsDataURL(modalImageInput.files[0]);
+            } else {
+                addNewPost(author, tag, content, null);
+                finalizePostForm();
+            }
+        });
+
+        function finalizePostForm() {
+            postForm.reset();
+            writeModal.classList.add('hidden');
+        }
+
+        function addNewPost(author, tag, content, imageUrl) {
+            const newPost = {
+                id: Date.now(),
+                author,
+                tag,
+                content,
+                imageUrl,
+                time: '방금 전',
+                likes: 0,
+                liked: false,
+                comments: []
+            };
+            posts.unshift(newPost);
+            renderPosts();
+        }
+
+        function renderPosts() {
+            postList.innerHTML = '';
+
+            const filteredPosts = currentFilter === 'all' 
+                ? posts 
+                : posts.filter(post => post.tag === currentFilter);
+
+            if (filteredPosts.length === 0) {
+                postList.innerHTML = `
+                    <div class="text-center py-8 text-gray-400 text-xs">
+                        해당 말머리에 등록된 글이 없습니다. 🌿
+                    </div>
+                `;
+                return;
+            }
+
+            filteredPosts.forEach(post => {
+                const tagBg = post.tag === '공지' ? 'bg-indigo-100 text-indigo-800' : 'bg-emerald-100 text-emerald-800';
+                const cardBg = post.tag === '공지' ? 'bg-indigo-50/40 border-indigo-100' : 'bg-emerald-50/40 border-emerald-100';
+
+                let imageHTML = post.imageUrl 
+                    ? `<div class="overflow-hidden rounded-xl border border-gray-100"><img src="${post.imageUrl}" alt="인증 사진" class="w-full h-48 object-cover"></div>` 
+                    : '';
+
+                let commentsHTML = post.comments.map(c => `
+                    <div class="bg-white/80 p-2 rounded-xl text-[11px] text-gray-700 flex justify-between items-center">
+                        <span><strong class="text-emerald-700">${c.author}:</strong> ${c.text}</span>
+                        <span class="text-[9px] text-gray-400">${c.time}</span>
+                    </div>
+                `).join('');
+
+                // 빨간색 하트 아이콘 설정 (기본: 빈 하트, 클릭 시: 채워진 빨간 하트)
+                const heartIcon = post.liked 
+                    ? `<i class="fa-solid fa-heart text-rose-500"></i>` 
+                    : `<i class="fa-regular fa-heart text-rose-500"></i>`;
+
+                const postHTML = `
+                    <div class="p-4 ${cardBg} border rounded-2xl space-y-3 post-card" data-id="${post.id}">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs">
+                                    🌱
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-gray-800">${post.author}</p>
+                                    <p class="text-[10px] text-gray-400">${post.time}</p>
+                                </div>
+                            </div>
+                            <span class="${tagBg} text-[10px] font-bold px-2.5 py-0.5 rounded-full">${post.tag}</span>
+                        </div>
+                        <p class="text-xs text-gray-700 leading-relaxed">${post.content}</p>
+                        ${imageHTML}
+                        
+                        <!-- 좋아요 & 댓글 버튼 영역 -->
+                        <div class="flex items-center space-x-4 text-xs text-gray-500 pt-1 border-t border-gray-100">
+                            <button class="like-btn flex items-center space-x-1 hover:opacity-80 transition cursor-pointer">
+                                ${heartIcon}
+                                <span class="like-count text-rose-500 font-medium">${post.likes}</span>
+                            </button>
+                            <button class="flex items-center space-x-1 hover:text-emerald-600 cursor-pointer">
+                                <i class="fa-regular fa-comment"></i>
+                                <span class="comment-count">${post.comments.length}</span>
+                            </button>
+                        </div>
+
+                        <!-- 댓글 바로 밑 영역 -->
+                        <div class="space-y-2 pt-2">
+                            <div class="comment-list space-y-1.5">${commentsHTML}</div>
+
+                            <!-- 댓글 입력 폼 -->
+                            <form class="comment-form flex gap-1.5">
+                                <input type="text" placeholder="댓글을 남겨주세요..." class="comment-input flex-1 text-[11px] px-3 py-2 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-emerald-500" required>
+                                <button type="submit" class="bg-emerald-600 hover:bg-emerald-700 text-white text-[11px] font-bold px-3 py-2 rounded-xl transition">
+                                    등록
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                `;
+                postList.insertAdjacentHTML('beforeend', postHTML);
+            });
+        }
+
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.like-btn')) {
+                const card = e.target.closest('.post-card');
+                const postId = Number(card.getAttribute('data-id'));
+                const post = posts.find(p => p.id === postId);
+
+                if (post) {
+                    if (post.liked) {
+                        post.liked = false;
+                        post.likes -= 1;
+                    } else {
+                        post.liked = true;
+                        post.likes += 1;
+                    }
+                    renderPosts();
+                }
+            }
+        });
+
+        document.addEventListener('submit', function(e) {
+            if (e.target && e.target.classList.contains('comment-form')) {
+                e.preventDefault();
+                const form = e.target;
+                const input = form.querySelector('.comment-input');
+                const commentText = input.value.trim();
+                
+                if (commentText) {
+                    const card = form.closest('.post-card');
+                    const postId = Number(card.getAttribute('data-id'));
+                    const post = posts.find(p => p.id === postId);
+
+                    if (post) {
+                        post.comments.push({
+                            author: '나',
+                            text: commentText,
+                            time: '방금 전'
+                        });
+                        renderPosts();
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
