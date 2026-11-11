@@ -10,122 +10,211 @@
 </head>
 <body class="bg-emerald-50 text-gray-800 font-sans">
 
-    <!-- 헤더 바 -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-md mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <span class="text-2xl">🌱</span>
-                <h1 class="font-bold text-lg text-emerald-700">GreenPlate</h1>
-            </div>
-            <div class="flex items-center space-x-3">
-                <button class="text-sm bg-emerald-100 text-emerald-800 px-3 py-1.5 rounded-full font-medium">
-                    <i class="fa-solid fa-trophy mr-1"></i> 랭킹
-                </button>
-                <button class="text-gray-600 hover:text-emerald-700">
-                    <i class="fa-solid fa-user text-lg"></i>
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <!-- 메인 컨테이너 (모바일 최적화 폭) -->
-    <main class="max-w-md mx-auto p-4 space-y-6">
-
-        <!-- 히어로 배너 / 인증 섹션 -->
-        <section class="bg-gradient-to-br from-emerald-600 to-teal-700 text-white p-6 rounded-3xl shadow-lg text-center space-y-4">
-            <span class="bg-emerald-500/40 text-emerald-100 text-xs px-3 py-1 rounded-full uppercase tracking-wider font-semibold">SDGs 13 기후 행동 팀 '열공'</span>
-            <h2 class="text-2xl font-black leading-tight">잔반 없이 깨끗한 식판,<br>지구를 구하는 가장 쉬운 방법</h2>
-            <p class="text-emerald-100 text-sm">사진을 올리거나 글을 남겨 커뮤니티에 참여해보세요!</p>
-            
-            <div class="pt-2">
-                <label for="cameraInput" class="w-full bg-white text-emerald-700 font-bold py-3.5 px-4 rounded-2xl shadow-md flex items-center justify-center space-x-2 cursor-pointer hover:bg-emerald-50 transition">
-                    <i class="fa-solid fa-camera text-xl"></i>
-                    <span>식판 사진 찍고 바로 인증하기</span>
-                </label>
-                <!-- 사진 선택 시 즉시 업로드 실행 -->
-                <input type="file" id="cameraInput" accept="image/*" capture="environment" class="hidden">
-            </div>
-        </section>
-
-        <!-- 나의 누적 리포트 -->
-        <section class="bg-white p-5 rounded-3xl shadow-sm space-y-4">
-            <div class="flex justify-between items-center">
-                <h3 class="font-bold text-gray-700 flex items-center">
-                    <i class="fa-solid fa-chart-line text-emerald-600 mr-2"></i> 나의 환경 리포트
-                </h3>
-                <span class="text-xs text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full font-semibold">Lv.3 초록 수호자</span>
-            </div>
-            
-            <div class="grid grid-cols-2 gap-3">
-                <div class="bg-emerald-50/60 p-4 rounded-2xl text-center">
-                    <p class="text-xs text-gray-500 mb-1">절약한 음식물 쓰레기</p>
-                    <p class="text-xl font-black text-emerald-700">1.2 <span class="text-sm font-normal">kg</span></p>
-                </div>
-                <div class="bg-teal-50/60 p-4 rounded-2xl text-center">
-                    <p class="text-xs text-gray-500 mb-1">줄인 탄소 배출량</p>
-                    <p class="text-xl font-black text-teal-700">2.8 <span class="text-sm font-normal">kg CO₂</span></p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 학교 실시간 랭킹 -->
-        <section class="bg-white p-5 rounded-3xl shadow-sm space-y-3">
-            <div class="flex justify-between items-center">
-                <h3 class="font-bold text-gray-700 flex items-center">
-                    <i class="fa-solid fa-medal text-amber-500 mr-2"></i> 이번 주 학급 잔반 랭킹
-                </h3>
-                <span class="text-xs text-gray-400">실시간 갱신</span>
-            </div>
-
+    <!-- 1. 로그인 화면 (기본 표시) -->
+    <div id="loginScreen" class="min-h-screen flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-sm rounded-3xl p-8 space-y-6 shadow-lg text-center">
             <div class="space-y-2">
-                <div class="flex items-center justify-between p-3 bg-amber-50 border border-amber-200 rounded-2xl">
-                    <div class="flex items-center space-x-3">
-                        <span class="font-black text-amber-600 w-5">1</span>
-                        <span class="font-semibold text-gray-800">2학년 6반</span>
-                    </div>
-                    <span class="text-xs font-bold text-amber-700 bg-amber-100 px-2 py-1 rounded-lg">탄소 -14.2kg</span>
-                </div>
-                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-2xl">
-                    <div class="flex items-center space-x-3">
-                        <span class="font-black text-gray-500 w-5">2</span>
-                        <span class="font-semibold text-gray-800">2학년 5반</span>
-                    </div>
-                    <span class="text-xs font-bold text-gray-600 bg-gray-200 px-2 py-1 rounded-lg">탄소 -11.8kg</span>
-                </div>
+                <span class="text-4xl">🌱</span>
+                <h1 class="font-black text-2xl text-emerald-700">GreenPlate</h1>
+                <p class="text-xs text-gray-400">학교 급식 탄소 절감 플랫폼</p>
             </div>
-        </section>
 
-        <!-- 에코 커뮤니티 게시판 섹션 -->
-        <section class="bg-white p-5 rounded-3xl shadow-sm space-y-4">
-            <div class="flex justify-between items-center">
+            <form id="loginForm" class="space-y-4 text-left">
                 <div>
-                    <h3 class="font-bold text-gray-700 flex items-center">
-                        <i class="fa-solid fa-comments text-emerald-600 mr-2"></i> 에코 커뮤니티
-                    </h3>
-                    <p class="text-xs text-gray-400">환경 보호 팁과 식판 인증을 공유해요</p>
+                    <label class="block text-xs font-bold text-gray-600 mb-1">아이디 (학번 등)</label>
+                    <input type="text" id="loginIdInput" placeholder="예: 20412" required class="w-full text-xs p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-emerald-500">
                 </div>
-                <button id="openModalBtn" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-3 py-2 rounded-xl shadow-sm flex items-center space-x-1 transition">
-                    <i class="fa-solid fa-pen"></i>
-                    <span>글쓰기</span>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-600 mb-1">닉네임 / 학급</label>
+                    <input type="text" id="loginNicknameInput" placeholder="예: 김열공 (2학년 6반)" required class="w-full text-xs p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-emerald-500">
+                </div>
+
+                <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl shadow-md transition text-xs">
+                    로그인 및 시작하기
                 </button>
-            </div>
+            </form>
+        </div>
+    </div>
 
-            <!-- 말머리 필터 탭 -->
-            <div class="flex space-x-3 border-b border-gray-100 pb-2 text-xs">
-                <button class="tab-btn font-bold text-emerald-700 border-b-2 border-emerald-600 pb-1 px-1 transition" data-tab="all">전체</button>
-                <button class="tab-btn font-medium text-gray-400 hover:text-gray-700 pb-1 px-1 transition" data-tab="일반">일반</button>
-                <button class="tab-btn font-medium text-gray-400 hover:text-gray-700 pb-1 px-1 transition" data-tab="공지">공지</button>
-            </div>
-
-            <!-- 게시글 목록 -->
-            <div id="postList" class="space-y-4">
-                <div id="emptyMessage" class="text-center py-8 text-gray-400 text-xs">
-                    아직 등록된 글이 없습니다. 첫 번째 글을 작성해보세요! 🌱
+    <!-- 앱 전체 컨테이너 (로그인 후 표시) -->
+    <div id="appContainer" class="hidden">
+        <!-- 헤더 바 -->
+        <header class="bg-white shadow-sm sticky top-0 z-50">
+            <div class="max-w-md mx-auto px-4 py-3 flex justify-between items-center">
+                <div id="logoBtn" class="flex items-center space-x-2 cursor-pointer">
+                    <span class="text-2xl">🌱</span>
+                    <h1 class="font-bold text-lg text-emerald-700">GreenPlate</h1>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <button id="profileBtn" class="text-gray-600 hover:text-emerald-700 p-1 rounded-full transition" title="마이페이지">
+                        <i class="fa-solid fa-user text-xl"></i>
+                    </button>
                 </div>
             </div>
-        </section>
+        </header>
 
-    </main>
+        <!-- 메인페이지 화면 -->
+        <main id="mainPage" class="max-w-md mx-auto p-4 space-y-6">
+
+            <!-- 히어로 배너 / 인증 섹션 -->
+            <section class="bg-gradient-to-br from-emerald-600 to-teal-700 text-white p-6 rounded-3xl shadow-lg text-center space-y-4">
+                <span class="bg-emerald-500/40 text-emerald-100 text-xs px-3 py-1 rounded-full uppercase tracking-wider font-semibold">SDGs 13 기후 행동 팀 '열공'</span>
+                <h2 class="text-2xl font-black leading-tight">잔반 없이 깨끗한 식판,<br>지구를 구하는 가장 쉬운 방법</h2>
+                <p class="text-emerald-100 text-sm">사진을 올리거나 글을 남겨 커뮤니티에 참여해보세요!</p>
+                
+                <div class="pt-2">
+                    <label for="cameraInput" class="w-full bg-white text-emerald-700 font-bold py-3.5 px-4 rounded-2xl shadow-md flex items-center justify-center space-x-2 cursor-pointer hover:bg-emerald-50 transition">
+                        <i class="fa-solid fa-camera text-xl"></i>
+                        <span>식판 사진 찍고 바로 인증하기</span>
+                    </label>
+                    <input type="file" id="cameraInput" accept="image/*" capture="environment" class="hidden">
+                </div>
+            </section>
+
+            <!-- 나의 누적 리포트 -->
+            <section class="bg-white p-5 rounded-3xl shadow-sm space-y-4">
+                <div class="flex justify-between items-center">
+                    <h3 class="font-bold text-gray-700 flex items-center">
+                        <i class="fa-solid fa-chart-line text-emerald-600 mr-2"></i> 나의 환경 리포트
+                    </h3>
+                    <span class="text-xs text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full font-semibold">Lv.3 초록 수호자</span>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="bg-emerald-50/60 p-4 rounded-2xl text-center">
+                        <p class="text-xs text-gray-500 mb-1">절약한 음식물 쓰레기</p>
+                        <p class="text-xl font-black text-emerald-700">1.2 <span class="text-sm font-normal">kg</span></p>
+                    </div>
+                    <div class="bg-teal-50/60 p-4 rounded-2xl text-center">
+                        <p class="text-xs text-gray-500 mb-1">줄인 탄소 배출량</p>
+                        <p class="text-xl font-black text-teal-700">2.8 <span class="text-sm font-normal">kg CO₂</span></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 학교 실시간 랭킹 (재추가됨) -->
+            <section class="bg-white p-5 rounded-3xl shadow-sm space-y-3">
+                <div class="flex justify-between items-center">
+                    <h3 class="font-bold text-gray-700 flex items-center">
+                        <i class="fa-solid fa-medal text-amber-500 mr-2"></i> 이번 주 학급 잔반 랭킹
+                    </h3>
+                    <span class="text-xs text-gray-400">실시간 갱신</span>
+                </div>
+
+                <div class="space-y-2">
+                    <div class="flex items-center justify-between p-3 bg-amber-50 border border-amber-200 rounded-2xl">
+                        <div class="flex items-center space-x-3">
+                            <span class="font-black text-amber-600 w-5">1</span>
+                            <span class="font-semibold text-gray-800">2학년 6반</span>
+                        </div>
+                        <span class="text-xs font-bold text-amber-700 bg-amber-100 px-2 py-1 rounded-lg">탄소 -14.2kg</span>
+                    </div>
+                    <div class="flex items-center justify-between p-3 bg-gray-50 rounded-2xl">
+                        <div class="flex items-center space-x-3">
+                            <span class="font-black text-gray-500 w-5">2</span>
+                            <span class="font-semibold text-gray-800">2학년 5반</span>
+                        </div>
+                        <span class="text-xs font-bold text-gray-600 bg-gray-200 px-2 py-1 rounded-lg">탄소 -11.8kg</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 에코 커뮤니티 게시판 섹션 -->
+            <section class="bg-white p-5 rounded-3xl shadow-sm space-y-4">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h3 class="font-bold text-gray-700 flex items-center">
+                            <i class="fa-solid fa-comments text-emerald-600 mr-2"></i> 에코 커뮤니티
+                        </h3>
+                        <p class="text-xs text-gray-400">환경 보호 팁과 식판 인증을 공유해요</p>
+                    </div>
+                    <button id="openModalBtn" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-3 py-2 rounded-xl shadow-sm flex items-center space-x-1 transition">
+                        <i class="fa-solid fa-pen"></i>
+                        <span>글쓰기</span>
+                    </button>
+                </div>
+
+                <!-- 말머리 필터 탭 -->
+                <div class="flex space-x-3 border-b border-gray-100 pb-2 text-xs">
+                    <button class="tab-btn font-bold text-emerald-700 border-b-2 border-emerald-600 pb-1 px-1 transition" data-tab="all">전체</button>
+                    <button class="tab-btn font-medium text-gray-400 hover:text-gray-700 pb-1 px-1 transition" data-tab="일반">일반</button>
+                    <button class="tab-btn font-medium text-gray-400 hover:text-gray-700 pb-1 px-1 transition" data-tab="공지">공지</button>
+                </div>
+
+                <!-- 게시글 목록 -->
+                <div id="postList" class="space-y-4">
+                    <div id="emptyMessage" class="text-center py-8 text-gray-400 text-xs">
+                        아직 등록된 글이 없습니다. 첫 번째 글을 작성해보세요! 🌱
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- 마이페이지 화면 -->
+        <main id="myPage" class="max-w-md mx-auto p-4 space-y-6 hidden">
+            <div class="flex items-center justify-between pb-2 border-b border-gray-200">
+                <button id="backToMainBtn" class="text-xs font-bold text-emerald-700 flex items-center space-x-1 hover:underline">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>메인 화면으로 돌아가기</span>
+                </button>
+                <h2 class="font-bold text-gray-800 text-sm">마이페이지</h2>
+            </div>
+
+            <!-- 사용자 프로필 카드 -->
+            <section class="bg-white p-6 rounded-3xl shadow-sm text-center space-y-3">
+                <div class="w-20 h-20 mx-auto rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-3xl font-bold border-2 border-emerald-500 shadow-sm">
+                    🌱
+                </div>
+                <div>
+                    <h3 id="displayNickname" class="font-bold text-lg text-gray-800">김열공</h3>
+                    <p id="displayUserId" class="text-xs text-gray-500">아이디: 20412</p>
+                </div>
+                <div class="pt-1">
+                    <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">
+                        Lv.3 초록 수호자
+                    </span>
+                </div>
+            </section>
+
+            <!-- 나의 활동 요약 -->
+            <section class="bg-white p-5 rounded-3xl shadow-sm space-y-3">
+                <h4 class="font-bold text-xs text-gray-700 uppercase tracking-wider">나의 활동 요약</h4>
+                <div class="grid grid-cols-3 gap-2 text-center">
+                    <div class="bg-gray-50 p-3 rounded-2xl">
+                        <p class="text-[10px] text-gray-400 mb-1">인증 횟수</p>
+                        <p id="myAuthCount" class="text-base font-black text-emerald-700">0회</p>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded-2xl">
+                        <p class="text-[10px] text-gray-400 mb-1">작성한 글</p>
+                        <p id="myPostCount" class="text-base font-black text-emerald-700">0개</p>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded-2xl">
+                        <p class="text-[10px] text-gray-400 mb-1">획득 포인트</p>
+                        <p class="text-base font-black text-amber-600">280P</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 내가 쓴 글 목록 -->
+            <section class="bg-white p-5 rounded-3xl shadow-sm space-y-3">
+                <h4 class="font-bold text-xs text-gray-700 uppercase tracking-wider">내가 작성한 커뮤니티 글</h4>
+                <div id="myPostList" class="space-y-2">
+                    <div id="myPostEmpty" class="text-center py-6 text-gray-400 text-xs">
+                        아직 작성한 글이 없습니다.
+                    </div>
+                </div>
+            </section>
+
+            <!-- 로그아웃 버튼 -->
+            <section class="bg-white p-3 rounded-3xl shadow-sm">
+                <button id="logoutBtn" class="w-full text-left px-3 py-2 text-xs font-semibold text-rose-600 hover:bg-rose-50 rounded-xl flex items-center justify-between">
+                    <span><i class="fa-solid fa-right-from-bracket mr-2"></i>로그아웃</span>
+                </button>
+            </section>
+        </main>
+    </div>
 
     <!-- 글쓰기 모달 팝업 -->
     <div id="writeModal" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 hidden">
@@ -141,8 +230,8 @@
 
             <form id="postForm" class="space-y-3">
                 <div>
-                    <label class="block text-xs font-bold text-gray-600 mb-1">작성자 / 학급</label>
-                    <input type="text" id="authorInput" placeholder="예: 김열공 (1학년 3반)" required class="w-full text-xs p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-emerald-500">
+                    <label class="block text-xs font-bold text-gray-600 mb-1">작성자</label>
+                    <input type="text" id="authorDisplayInput" disabled class="w-full text-xs p-3 bg-gray-100 border border-gray-200 rounded-xl text-gray-500 font-bold">
                 </div>
 
                 <div>
@@ -175,6 +264,23 @@
 
     <!-- JavaScript 기능 구현 -->
     <script>
+        const loginScreen = document.getElementById('loginScreen');
+        const appContainer = document.getElementById('appContainer');
+        const loginForm = document.getElementById('loginForm');
+        const loginIdInput = document.getElementById('loginIdInput');
+        const loginNicknameInput = document.getElementById('loginNicknameInput');
+
+        const displayNickname = document.getElementById('displayNickname');
+        const displayUserId = document.getElementById('displayUserId');
+        const authorDisplayInput = document.getElementById('authorDisplayInput');
+
+        const mainPage = document.getElementById('mainPage');
+        const myPage = document.getElementById('myPage');
+        const profileBtn = document.getElementById('profileBtn');
+        const backToMainBtn = document.getElementById('backToMainBtn');
+        const logoBtn = document.getElementById('logoBtn');
+        const logoutBtn = document.getElementById('logoutBtn');
+
         const cameraInput = document.getElementById('cameraInput');
         const openModalBtn = document.getElementById('openModalBtn');
         const closeModalBtn = document.getElementById('closeModalBtn');
@@ -184,15 +290,68 @@
         const emptyMessage = document.getElementById('emptyMessage');
         const tabBtns = document.querySelectorAll('.tab-btn');
 
+        const myPostList = document.getElementById('myPostList');
+        const myPostCount = document.getElementById('myPostCount');
+        const myAuthCount = document.getElementById('myAuthCount');
+
+        let currentUser = { id: '', nickname: '' };
         let posts = [];
         let currentFilter = 'all';
 
+        // 로그인 처리
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const id = loginIdInput.value.trim();
+            const nickname = loginNicknameInput.value.trim();
+
+            if (id && nickname) {
+                currentUser.id = id;
+                currentUser.nickname = nickname;
+
+                displayNickname.textContent = nickname;
+                displayUserId.textContent = `아이디: ${id}`;
+                authorDisplayInput.value = nickname;
+
+                loginScreen.classList.add('hidden');
+                appContainer.classList.remove('hidden');
+            }
+        });
+
+        // 로그아웃 처리
+        logoutBtn.addEventListener('click', () => {
+            if (confirm("로그아웃 하시겠습니까?")) {
+                appContainer.classList.add('hidden');
+                loginScreen.classList.remove('hidden');
+                loginForm.reset();
+            }
+        });
+
+        // 페이지 전환
+        function showMyPage() {
+            mainPage.classList.add('hidden');
+            myPage.classList.remove('hidden');
+            renderMyPagePosts();
+            window.scrollTo(0, 0);
+        }
+
+        function showMainPage() {
+            myPage.classList.add('hidden');
+            mainPage.classList.remove('hidden');
+            window.scrollTo(0, 0);
+        }
+
+        profileBtn.addEventListener('click', showMyPage);
+        backToMainBtn.addEventListener('click', showMainPage);
+        logoBtn.addEventListener('click', showMainPage);
+
+        // 글쓰기 모달 제어
         openModalBtn.addEventListener('click', () => writeModal.classList.remove('hidden'));
         closeModalBtn.addEventListener('click', () => writeModal.classList.add('hidden'));
         writeModal.addEventListener('click', (e) => {
             if (e.target === writeModal) writeModal.classList.add('hidden');
         });
 
+        // 탭 필터링
         tabBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 tabBtns.forEach(b => {
@@ -207,21 +366,22 @@
             });
         });
 
+        // 카메라로 사진 바로 인증
         cameraInput.addEventListener('change', (e) => {
             const file = e.target.files[0];
             if (file) {
                 const reader = new FileReader();
                 reader.onload = function(event) {
-                    addNewPost("나 (열공 팀)", "일반", "오늘도 잔반 없이 깨끗한 식판 인증! 지구 온실가스 감축 동참 완료 🌿", event.target.result);
+                    addNewPost(currentUser.nickname, "일반", "오늘도 잔반 없이 깨끗한 식판 인증! 지구 온실가스 감축 동참 완료 🌿", event.target.result);
                     cameraInput.value = '';
                 }
                 reader.readAsDataURL(file);
             }
         });
 
+        // 모달 폼으로 글 업로드
         postForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const author = document.getElementById('authorInput').value;
             const tag = document.getElementById('tagInput').value;
             const content = document.getElementById('contentInput').value;
             const modalImageInput = document.getElementById('modalImageInput');
@@ -229,18 +389,19 @@
             if (modalImageInput.files && modalImageInput.files[0]) {
                 const reader = new FileReader();
                 reader.onload = function(event) {
-                    addNewPost(author, tag, content, event.target.result);
+                    addNewPost(currentUser.nickname, tag, content, event.target.result);
                     finalizePostForm();
                 }
                 reader.readAsDataURL(modalImageInput.files[0]);
             } else {
-                addNewPost(author, tag, content, null);
+                addNewPost(currentUser.nickname, tag, content, null);
                 finalizePostForm();
             }
         });
 
         function finalizePostForm() {
             postForm.reset();
+            authorDisplayInput.value = currentUser.nickname;
             writeModal.classList.add('hidden');
         }
 
@@ -291,7 +452,6 @@
                     </div>
                 `).join('');
 
-                // 빨간색 하트 아이콘 설정 (기본: 빈 하트, 클릭 시: 채워진 빨간 하트)
                 const heartIcon = post.liked 
                     ? `<i class="fa-solid fa-heart text-rose-500"></i>` 
                     : `<i class="fa-regular fa-heart text-rose-500"></i>`;
@@ -308,7 +468,12 @@
                                     <p class="text-[10px] text-gray-400">${post.time}</p>
                                 </div>
                             </div>
-                            <span class="${tagBg} text-[10px] font-bold px-2.5 py-0.5 rounded-full">${post.tag}</span>
+                            <div class="flex items-center space-x-2">
+                                <span class="${tagBg} text-[10px] font-bold px-2.5 py-0.5 rounded-full">${post.tag}</span>
+                                <button class="delete-btn text-gray-400 hover:text-rose-600 text-xs transition cursor-pointer" title="글 삭제">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                            </div>
                         </div>
                         <p class="text-xs text-gray-700 leading-relaxed">${post.content}</p>
                         ${imageHTML}
@@ -343,6 +508,37 @@
             });
         }
 
+        function renderMyPagePosts() {
+            myPostList.innerHTML = '';
+            
+            const myPosts = posts.filter(p => p.author === currentUser.nickname);
+            myPostCount.textContent = `${myPosts.length}개`;
+            const photoAuths = myPosts.filter(p => p.imageUrl !== null).length;
+            myAuthCount.textContent = `${photoAuths}회`;
+
+            if (myPosts.length === 0) {
+                myPostList.innerHTML = `
+                    <div class="text-center py-6 text-gray-400 text-xs">
+                        아직 작성한 글이 없습니다.
+                    </div>
+                `;
+                return;
+            }
+
+            myPosts.forEach(post => {
+                const itemHTML = `
+                    <div class="p-3 bg-gray-50 rounded-2xl flex justify-between items-center text-xs">
+                        <div class="truncate mr-2">
+                            <span class="font-bold text-emerald-700 mr-1">[${post.tag}]</span>
+                            <span class="text-gray-800">${post.content}</span>
+                        </div>
+                        <span class="text-[10px] text-gray-400 shrink-0">${post.time}</span>
+                    </div>
+                `;
+                myPostList.insertAdjacentHTML('beforeend', itemHTML);
+            });
+        }
+
         document.addEventListener('click', function(e) {
             if (e.target.closest('.like-btn')) {
                 const card = e.target.closest('.post-card');
@@ -357,6 +553,16 @@
                         post.liked = true;
                         post.likes += 1;
                     }
+                    renderPosts();
+                }
+            }
+
+            if (e.target.closest('.delete-btn')) {
+                const card = e.target.closest('.post-card');
+                const postId = Number(card.getAttribute('data-id'));
+                
+                if (confirm("정말 이 게시글을 삭제하시겠습니까?")) {
+                    posts = posts.filter(p => p.id !== postId);
                     renderPosts();
                 }
             }
@@ -376,7 +582,7 @@
 
                     if (post) {
                         post.comments.push({
-                            author: '나',
+                            author: currentUser.nickname,
                             text: commentText,
                             time: '방금 전'
                         });
